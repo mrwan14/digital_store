@@ -1,0 +1,24 @@
+.dashboard
+{
+    position: relative;
+    width: 1490px;
+    height: 300vh;
+    background: #EDEDED;
+    border-radius: 16px;
+}
+.brdr
+{
+
+    background-color: rgba(26, 31, 22, 0.5);;
+    position: absolute;
+    width: 4px;
+    height: 921.5px;
+    top: 51px;
+    left: 1095px;
+}
+.content-area
+{
+    position: absolute;
+    top: 170px;
+    left: 120px;
+}

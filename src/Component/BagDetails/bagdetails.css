@@ -1,0 +1,55 @@
+.bad-details
+{
+    position: absolute;
+    top: -80px;
+    width: 920px;
+    height: 100vh;
+
+}
+.card-item
+{
+    margin: auto;
+    width: 850px;
+    height: 300px;
+    position: relative;
+    border-radius: 18px;
+    background-color: white;
+}
+.rating
+
+{
+    position: absolute;
+    top: 160px;
+    right: 340px;
+}
+.img-in-card-details img
+{
+    border-radius: 18px;
+    width: 20022%;
+}
+.price
+{
+    margin-top: 40px;
+}
+.right-buttons
+{
+    cursor: pointer;
+}
+.left-side{
+    position: absolute;
+    left: -120px;
+    height: 100vh;
+    top: -164px;
+}
+.right-side
+{
+    position: absolute;
+    top: -130px;
+    right: -1370px;
+}
+.brdr
+{
+    position: absolute;
+    top: -130px;
+    left: 970px;
+}

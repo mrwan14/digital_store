@@ -1,0 +1,35 @@
+.navbar
+{
+    position: absolute;
+    width: 72px;
+    left: 16px;
+    top: 1.56%;
+    bottom: 1.56%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    gap: 10px;
+    border-radius: 8px; 
+}
+.icon
+{
+    display: block;
+    margin-bottom:50px;
+    margin-top: 15px;
+    font-size: 30px;
+    text-align: center;
+}
+.exit-icon
+{
+    background-color: tomato;
+    width: 40px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
