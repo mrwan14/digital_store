@@ -1,7 +1,15 @@
 import { createContext, useEffect, useState } from "react";
+import { useLocation } from "react-router";
+import "../Bag/bag.css";
 
 export let contentContext = createContext(0);
+
 export default function ContentContextProvider(props) {
+  let location = useLocation();
+  let checkOutBtn = document.getElementById("checkOut");
+
+  let viewBagBtn = document.getElementById("viewBag");
+
   const [productContainer, setproductContainer] = useState([
     {
       id: 1,
@@ -123,21 +131,60 @@ export default function ContentContextProvider(props) {
   ]);
   let [ProductInBag, setProductInBag] = useState([]);
 
-
-
   function getItem(id) {
     let data = productContainer.find((item) => item.id == id);
     ProductInBag.push(data);
     localStorage.setItem("items", JSON.stringify(ProductInBag));
   }
-  function saveData (){
-    const item =JSON.parse( localStorage.getItem('items'))
-    setProductInBag(item)
+  function saveData() {
+    const item = JSON.parse(localStorage.getItem("items"));
+    setProductInBag(item);
   }
+  function bagToCheckOut() {
+    if (location.pathname === "/bag-details") {
+      // console.log(checkOutBtn)
+      // console.log(viewBagBtn)
+      checkOutBtn.classList.replace("d-none", "d-inline-block");
+
+      viewBagBtn.classList.replace("d-inline-block", "d-none");
+    }
+  }
+  let [totalPrice, settotalPrice] = useState(0)
+
+  function CountTotalPrice(id) {
+    let { Price } = productContainer.find((item) => item.id == id);
+     totalPrice+=Price
+     settotalPrice(totalPrice)
+  }
+  function savePrice (){
+    if(localStorage.getItem('items'))
+    {
+
+      settotalPrice(1000)
+      
+
+    }
+    else{
+      settotalPrice(0)
+    }
+
+  }
+
 
   return (
     <contentContext.Provider
-      value={{ productContainer, getItem, ProductInBag ,setProductInBag,saveData }}
+      value={{
+        productContainer,
+        getItem,
+        ProductInBag,
+        setProductInBag,
+        saveData,
+        bagToCheckOut,
+        CountTotalPrice,
+        totalPrice,
+        savePrice
+        
+      }}
     >
       {props.children}
     </contentContext.Provider>

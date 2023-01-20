@@ -1,10 +1,10 @@
-import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link,  } from "react-router-dom";
 import { contentContext } from "../Context/ContentContext";
 import "./bag.css";
 export default function Bag() {
-  let { ProductInBag ,saveData ,clear} = useContext(contentContext);
-
+  let { ProductInBag  ,totalPrice , } = useContext(contentContext);
+  
 
   return (
     <React.Fragment>
@@ -26,10 +26,20 @@ export default function Bag() {
         )}
 
         <Link to={"/bag-details"}>
-          <button>
+          <button  id="viewBag" className=" d-inline-block">
             {" "}
-            <i class="fa-solid fa-bag-shopping m-1 "></i> View Bag
+            <i   className="fa-solid fa-bag-shopping m-1 "></i> View Bag
           </button>
+          <div id="checkOut" className="d-none">
+
+            <h4>Total :{totalPrice}</h4>
+          <button > 
+            {" "}
+            <i class="fa-solid fa-bag-shopping m-1 "></i> CheckOut
+          </button>
+
+          </div>
+
         </Link>
       </div>
     </React.Fragment>

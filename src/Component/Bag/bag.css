@@ -26,3 +26,8 @@ button
 {
     border-radius: 15px;
 }
+#checkOut{
+    position: absolute;
+    bottom: -10px;
+    left: 100px;
+}

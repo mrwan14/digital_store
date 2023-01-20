@@ -9,12 +9,6 @@ import { contentContext } from "../Context/ContentContext";
 
 export default function Dashboard() {
   let {saveData ,ProductInBag} = useContext(contentContext)
-  useEffect(()=>{
-    if(localStorage.getItem('items')){
-      saveData()
-      }
-      
-    },[ProductInBag])
 
 
 

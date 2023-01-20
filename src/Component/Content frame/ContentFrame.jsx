@@ -6,7 +6,20 @@ import Navbar from "../NavBar/Navbar";
 import "./contentframe.css";
 
 export default function ContentFrame(props) {
-  let { productContainer, getItem ,saveData } = useContext(contentContext);
+  let { productContainer, getItem ,ProductInBag,saveData ,CountTotalPrice,savePrice} = useContext(contentContext);
+
+  
+  useEffect(()=>{
+    if(localStorage.getItem('items')){
+      saveData()
+      savePrice()
+      
+      }
+      
+    },[/* ProductInBag*/])
+
+   
+
 
 
   return (
@@ -52,7 +65,9 @@ export default function ContentFrame(props) {
                         <h5>$ {product.Price}</h5>
                         <div
                           className="exit-icon bg-dark text-white"
-                          onClick={() => getItem(product.id)}
+                          onClick={event =>{ getItem(product.id)   
+                                CountTotalPrice(product.id)   } }
+                          
                         >
                           <i class="fa-solid fa-cart-plus"></i>
                         </div>
