@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable eqeqeq */
 import React, { useContext, useEffect, useState } from "react";
 import "./itemview.css";
 import { contentContext } from "../Context/ContentContext";
@@ -7,19 +9,24 @@ import Navbar from "../NavBar/Navbar";
 import Bag from "../Bag/Bag";
 
 export default function ItemView() {
-  let { productContainer } = useContext(contentContext);
+  let { data, CountTotalPrice, getItem } =
+    useContext(contentContext);
   const [newRating, setNewRating] = useState(0);
 
   const [item, setItem] = useState(null);
   let params = useParams();
 
-  function getItem() {
-    const data = productContainer.find((item) => item.id == params.id);
-    setItem(data);
+  function getItemId() {
+    const item = data.find((item) => item.id == params.id);
+    setItem(item);
   }
   useEffect(() => {
-    getItem();
+    getItemId();
   }, [params.id]);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const ratingChanged = (newRating) => {
     console.log(newRating);
@@ -28,13 +35,13 @@ export default function ItemView() {
 
   return (
     <React.Fragment>
-              <div className="left-side-in-items">
+      <div className="left-side-in-items">
         <Navbar />
-        </div>
-        <div className="brdr"></div>
+      </div>
+      <div className="brdr"></div>
 
-        <div className="right-side">
-        <Bag/>
+      <div className="right-side">
+        <Bag />
       </div>
       <div className="item-view ">
         <div className="link  ">
@@ -81,13 +88,16 @@ export default function ItemView() {
                 Doloribus incidunt tempora sit doloremque. Ipsa unde cum vitae
                 fuga? Laboriosam fuga incidunt labore nemo.
               </p>
-              <Link to={`/bag-details`}>
-                {" "}
-                <button className="btn text-white bg-dark">
-                  {" "}
-                  <i class="fa-solid fa-bag-shopping me-2"></i> add to bag
-                </button>
-              </Link>
+
+              <button
+                className="btn text-white bg-dark"
+                onClick={(event) => {
+                  getItem(item.id);
+                  CountTotalPrice(item.id);
+                }}
+              >
+                <i className="fa-solid fa-bag-shopping me-2"></i> add to bag
+              </button>
             </div>
             <div className="line"></div>
           </div>

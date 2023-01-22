@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import "./dashboard.css";
 import ContentFrame from "../Content frame/ContentFrame";
@@ -6,10 +8,13 @@ import ItemView from "../Item-view/ItemView";
 import BagDetails from "../BagDetails/BagDetails";
 import CheckOut from "../CheckOut/CheckOut";
 import { contentContext } from "../Context/ContentContext";
+import AddPayment from "../AddPayment/AddPayment";
+import ChangeAddress from "../ChangeAddress/ChangeAddress";
 
 export default function Dashboard() {
-  let {saveData ,ProductInBag} = useContext(contentContext)
+  let {ProductInBag,setProductInBag,saveData,savePrice}=useContext(contentContext)
 
+  
 
 
   return (
@@ -22,7 +27,8 @@ export default function Dashboard() {
             <Route path="item-view/:id" element={<ItemView />} />
             <Route path="bag-details" element={<BagDetails />} />
             <Route path="checkout" element={<CheckOut />} />
-
+            <Route path="addpayment" element={<AddPayment />} />3
+            <Route path="changeaddress" element={<ChangeAddress />} />
             <Route
               path="*"
               element={

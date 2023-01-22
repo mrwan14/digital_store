@@ -1,0 +1,94 @@
+.checkout
+{
+    position: absolute;
+    top: -120px;
+}
+
+
+.shopping-address ,.payment-method
+{
+    width: 871px;
+    height: 230px;
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 20px;
+}
+.user-adddress ,.user-payment-method
+{
+margin-top: 20px;
+font-weight: 400;
+}
+.main-title
+{
+    letter-spacing: 0.25em;
+    font-weight: 400;
+    font-size: 32px;
+}
+.shopping-address .btn ,.payment-method .btn
+{
+    position: absolute;
+    top: 70px;
+    width: 90px;
+    border-radius: 13px;
+}
+.summary
+{
+    width: 280px;
+    height: 319px; 
+    background-color: white;
+    border-radius: 16px;
+    position: absolute;
+    top: -120px;
+    right: -1250px;
+}
+.order-total
+{
+    position: relative;
+    margin-top: 30px;
+}
+.summary-brdr1
+{
+    position: absolute;
+    width: 90%;
+    height: 1px;
+    background-color: #BFD1E5;
+    top: 190px;
+
+}
+.summary-brdr2
+{
+    position: absolute;
+    width: 90%;
+    height: 1px;
+    background-color: #BFD1E5;
+    top: 240px;
+
+}
+ .summary .btn
+ {
+    width: 85%;
+    border-radius: 15px;
+ }
+ .summary .back
+{
+    bottom: -70px;
+    width: 40%;
+}
+.review-bag
+{
+    width: 871px;
+    max-height: auto;
+    height:auto;
+    background-color: white;
+}
+.card-item .brdr-review
+{
+    width: 87%;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    margin: auto;
+    left: 30px;
+}

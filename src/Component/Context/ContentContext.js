@@ -1,192 +1,130 @@
-import { createContext, useEffect, useState } from "react";
-import { useLocation } from "react-router";
-import "../Bag/bag.css";
-
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable eqeqeq */
+/* eslint-disable no-unused-vars */
+import { createContext, useState, useEffect } from "react";
+import { getData } from "../../api";
 export let contentContext = createContext(0);
-
 export default function ContentContextProvider(props) {
-  let location = useLocation();
-  let checkOutBtn = document.getElementById("checkOut");
+  const [data, setData] = useState(null);
+  const [cartItems, setCartItems] = useState([]);
 
-  let viewBagBtn = document.getElementById("viewBag");
+  useEffect(() => {
+    // Immediately Invoked Function
+    (async () => {
+      // Get items from storage and sync with state
+      await getItemsFromStorage();
 
-  const [productContainer, setproductContainer] = useState([
-    {
-      id: 1,
-      Product_Name: "Apple Watch",
-      Product_Model: "Serise 5 SA",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/watch.png"),
-    },
-    {
-      id: 2,
-      Product_Name: "Sony ZX330BT",
-      Product_Model: "Light Grey",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/headphone.png"),
-    },
-    {
-      id: 3,
-      Product_Name: "Iphone 11",
-      Product_Model: "Serious Black ",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/iphone11(1).png"),
-    },
-    {
-      id: 4,
-      Product_Name: "Iphone 11",
-      Product_Model: "Subway Blue",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/iphone11(2).png"),
-    },
-    {
-      id: 5,
-      Product_Name: "Macbook Pro 16”",
-      Product_Model: "Silver - M1 Pro",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/macbook.png"),
-      isWideImage: true,
-    },
-    {
-      id: 6,
-      Product_Name: "Iphone 11",
-      Product_Model: "Product RED",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/iphone11.png"),
-    },
-    {
-      id: 7,
-      Product_Name: "Iphone 11",
-      Product_Model: "Milky White",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/iphone11 white.png"),
-    },
-    {
-      id: 8,
-      Product_Name: "Iphone 12",
-      Product_Model: "Rose Pink",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/iphone12.png"),
-    },
-    {
-      id: 9,
-      Product_Name: "Iphone 12",
-      Product_Model: "Navy Blue",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/iphone12 white.png"),
-    },
-    {
-      id: 10,
-      Product_Name: "Dell XPS 15 2-in-1",
-      Product_Model: "Midnight Gray",
-      Price: 526.99,
-      isWideImage: true,
+      // Get data from API
+      setData(await getData());
+    })();
+  }, []);
 
-      ImgSrc: require("../../images/product-imgs/dell xps 15.png"),
-    },
-    {
-      id: 11,
-      Product_Name: "Iphone 13 Pro",
-      Product_Model: "Silly Silver",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/iphone13 pro.png"),
-    },
-    {
-      id: 12,
-      Product_Name: "Iphone 13 Pro",
-      Product_Model: "Gray",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/iphone 13pro black.png"),
-    },
-    {
-      id: 13,
-      Product_Name: "Samsung Galaxy Note 21 ",
-      Product_Model: "2 - Options",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/samsoung note20.png"),
-    },
-    {
-      id: 14,
-      Product_Name: "Samsung Galaxy S21+",
-      Product_Model: "Lilac Purple",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/samsoung s21.png"),
-    },
-    {
-      id: 15,
-      Product_Name: "Dell XPS 13",
-      Product_Model: "White",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/dell xp 13.png"),
-      isWideImage: true,
-    },
-    {
-      id: 16,
-      Product_Name: "Dell XPS 15",
-      Product_Model: "Light Gray",
-      Price: 526.99,
-      ImgSrc: require("../../images/product-imgs/dell xp 15.png"),
-      isWideImage: true,
-    },
-  ]);
-  let [ProductInBag, setProductInBag] = useState([]);
-
-  function getItem(id) {
-    let data = productContainer.find((item) => item.id == id);
-    ProductInBag.push(data);
-    localStorage.setItem("items", JSON.stringify(ProductInBag));
-  }
-  function saveData() {
-    const item = JSON.parse(localStorage.getItem("items"));
-    setProductInBag(item);
-  }
-  function bagToCheckOut() {
-    if (location.pathname === "/bag-details") {
-      // console.log(checkOutBtn)
-      // console.log(viewBagBtn)
-      checkOutBtn.classList.replace("d-none", "d-inline-block");
-
-      viewBagBtn.classList.replace("d-inline-block", "d-none");
+  useEffect(() => {
+    if (cartItems.length != 0) {
+      localStorage.setItem("items", JSON.stringify(cartItems));
     }
-  }
-  let [totalPrice, settotalPrice] = useState(0)
+    CountTotalPrice();
+  }, [cartItems]);
 
-  function CountTotalPrice(id) {
-    let { Price } = productContainer.find((item) => item.id == id);
-     totalPrice+=Price
-     settotalPrice(totalPrice)
-  }
-  function savePrice (){
-    if(localStorage.getItem('items'))
-    {
+  const getItemsFromStorage = async () => {
+    const items = JSON.parse(localStorage.getItem("items") ?? "[]");
+    setCartItems(items);
+  };
 
-      settotalPrice(1000)
-      
+  const addItemToCart = (id) => {
+    const item = data.find((item) => item.id === id);
+    if (!item) return alert("Item doesn't exist");
 
+    setCartItems([...cartItems, item]);
+  };
+
+  let [totalPrice, settotalPrice] = useState(0);
+
+  const CountTotalPrice = () => {
+    settotalPrice(
+      cartItems.reduce((acc, curr) => acc + curr.Price * curr.CountOfProduct, 0)
+    );
+  };
+
+  const deleteProduct = (id) => {
+    const newProducts = cartItems.filter((p) => p.id != id);
+    setCartItems(newProducts);
+  };
+
+  const decrementProduct = (id) => {
+    const itemInCart = cartItems.find((item) => item.id == id);
+
+    if (itemInCart.CountOfProduct <= 1) {
+      deleteProduct(id);
+    } else {
+      itemInCart.CountOfProduct -= 1;
+
+      setCartItems(
+        cartItems.map((item) => {
+          if (item.id == itemInCart.id) {
+            return itemInCart;
+          } else {
+            return item;
+          }
+        })
+      );
     }
-    else{
-      settotalPrice(0)
+  };
+
+  const incrementProduct = (id) => {
+    const itemInCart = cartItems.find((item) => item.id == id);
+
+    if (!itemInCart) {
+      console.log(
+        "found item:",
+        data.find((item) => item.id == id)
+      );
+      setCartItems([
+        ...cartItems,
+        { ...data.find((item) => item.id == id), CountOfProduct: 1 },
+      ]);
+    } else {
+      itemInCart.CountOfProduct += 1;
+
+      setCartItems(
+        cartItems.map((item) => {
+          if (item.id == itemInCart.id) {
+            return itemInCart;
+          } else {
+            return item;
+          }
+        })
+      );
     }
+  };
 
-  }
 
-
+  let [newRating, setNewRating] = useState(0);
+  const ratingChanged = (newRating, id) => {
+    const item = cartItems.find((item) => item.id == id);
+    if (item) {
+      item.rating = newRating;
+      setNewRating(item.rating);
+    } 
+  };
   return (
     <contentContext.Provider
       value={{
-        productContainer,
-        getItem,
-        ProductInBag,
-        setProductInBag,
-        saveData,
-        bagToCheckOut,
+        addItemToCart,
+        cartItems,
+        setCartItems,
+        getItemsFromStorage,
         CountTotalPrice,
         totalPrice,
-        savePrice
-        
+        deleteProduct,
+        decrementProduct,
+        incrementProduct,
+        data,
+        newRating,
+        ratingChanged,
       }}
     >
-      {props.children}
+      {data == null ? <div>Loading...</div> : props.children}
     </contentContext.Provider>
   );
 }
