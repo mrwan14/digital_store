@@ -88,7 +88,7 @@ export default function CheckOut() {
               </h5>
               <h5 className="fw-normal">
                 {" "}
-                <i class="fa-sharp fa-solid fa-square me-2"></i>Billing address
+                <i className="fa-sharp fa-solid fa-square me-2"></i>Billing address
                 same as Shipping Address
               </h5>
             </div>
@@ -105,7 +105,7 @@ export default function CheckOut() {
               </h5>
               <h5 className="fw-normal">
                 {" "}
-                <i class="fa-sharp fa-solid fa-square me-2"></i>Billing address
+                <i className="fa-sharp fa-solid fa-square me-2"></i>Billing address
                 same as Shipping Address
               </h5>
             </div>

@@ -18,7 +18,7 @@ export default function AddPayment() {
           <div>
             {userPaymentList.map((card) => (
               <h6 className="text-muted" >
-                <i class="fa-brands fa-cc-mastercard   me-3"></i> MasterCard
+                <i className="fa-brands fa-cc-mastercard   me-3"></i> MasterCard
                 ending in {card.Expiry_Date}
               </h6>
             ))}
@@ -87,18 +87,18 @@ export default function AddPayment() {
               </div>
             </div>
 
-            <div class="form-group">
-              <div class="form-check">
+            <div className="form-group">
+              <div className="form-check">
                 <input
-                  class="form-check-input is-invalid "
+                  className="form-check-input is-invalid "
                   type="checkbox"
                   value=""
                   id="invalidCheck3"
                   required
                 />
                 <label
-                  class="form-check-label text-black fw-bolder"
-                  for="invalidCheck3"
+                  className="form-check-label text-black fw-bolder"
+                  htmlFor="invalidCheck3"
                 >
                   Save this as your default payment method
                 </label>

@@ -1,20 +1,13 @@
-import { createContext, useState, useEffect } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { createContext, useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router";
 
 export let UserDataContext = createContext(0);
 export default function UserDataContextProvider(props) {
-  let [userAddressList, setuserAddressList] = useState([]);
-  let [userPaymentList, setuserPaymentList] = useState([]);
   let navigate = useNavigate();
 
-  let [userAddress, setUserAddress] = useState({
-    shipping_name: "",
-    street_name: "",
-    city: "",
-    state: "",
-    countery: "",
-    saveAddress: false,
-  });
+  let [userAddressList, setuserAddressList] = useState([]);
+  let [userPaymentList, setuserPaymentList] = useState([]);
   let [AddUserPayment, setAddUserPayment] = useState({
     Cardholder_Name: "",
     Card_Number: "",
@@ -22,6 +15,18 @@ export default function UserDataContextProvider(props) {
     CVC: "",
     SavePayment: false,
   });
+  // const addUserPaymentToList = () => {
+  //   setuserPaymentList(AddUserPayment);
+  //   console.log(userPaymentList);
+  //   console.log("userPaymentList");
+
+  //   return userPaymentList;
+  // };
+
+  // userPaymentList = useMemo(() => addUserPaymentToList(), [AddUserPayment]);
+  // console.log(userPaymentList);
+
+
   function getUserPaymentDetails(e) {
     let newData = { ...AddUserPayment };
     newData[e.target.name] = e.target.value;
@@ -35,8 +40,6 @@ export default function UserDataContextProvider(props) {
     navigate("/checkout");
   }
 
- 
-
   const getPaymentDetailsFromStorage = async () => {
     if (localStorage.getItem("userPayment")) {
       setAddUserPayment(JSON.parse(localStorage.getItem("userPayment")));
@@ -45,14 +48,20 @@ export default function UserDataContextProvider(props) {
   useEffect(() => {
     (async () => {
       await getPaymentDetailsFromStorage();
-
     })();
   }, []);
-
 
   function selelctCard(e) {
     console.log(e.target);
   }
+  let [userAddress, setUserAddress] = useState({
+    shipping_name: "",
+    street_name: "",
+    city: "",
+    state: "",
+    countery: "",
+    saveAddress: false,
+  });
 
   function getUserAddress(e) {
     let newData = { ...userAddress };
