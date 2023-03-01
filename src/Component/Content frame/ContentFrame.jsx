@@ -57,7 +57,7 @@ export default function ContentFrame(props) {
                 <div className="row">
                   {FiltredItems.map((product) => (
                     <div
-                      className={`col-md-${product.isWideImage ? 6 : 3}`}
+                      className={`col-md-${product.isWideImage ? 6 : 3} `}
                       key={product.id}
                     >
                       <div className="content-product m-2  mb-0">
@@ -92,7 +92,7 @@ export default function ContentFrame(props) {
             <div className="row">
               {data.map((product) => (
                 <div
-                  className={`col-md-${product.isWideImage ? 6 : 3}`}
+                  className={`col-sm-3  col-md-${product.isWideImage ? 6 : 3}`}
                   key={product.id}
                 >
                   <div className="content-product m-2  mb-0">
