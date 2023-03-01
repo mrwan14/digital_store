@@ -92,7 +92,7 @@ export default function ContentFrame(props) {
             <div className="row">
               {data.map((product) => (
                 <div
-                  className={`col-sm-3  col-md-${product.isWideImage ? 6 : 3}`}
+                  className={` col-md-${product.isWideImage ? 6 : 3}`}
                   key={product.id}
                 >
                   <div className="content-product m-2  mb-0">
