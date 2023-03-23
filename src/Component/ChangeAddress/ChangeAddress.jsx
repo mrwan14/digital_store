@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { UserDataContext } from "../Context/UserData";
 import "./changeaddress.css";
 export default function ChangeAddress() {
-  let { getUserAddress,submitAddressForm } = useContext(UserDataContext);
+  let { getUserAddress, submitAddressForm } = useContext(UserDataContext);
   return (
     <div>
-      <div className="change-address " >
-        <div  className="form mt-3 ms-2 ">
+      <div className="change-address ">
+        <div className="form mt-3 ms-2 ">
           <div className="user m-3">
             <label htmlFor="shipping_name" className="  text-muted d-block">
               {" "}
@@ -96,11 +96,19 @@ export default function ChangeAddress() {
             </div>
           </div>
         </div>
-        <button className="btn btn-dark " onClick={submitAddressForm}> Add Address</button>
-        <div className="info d-flex ">
+        <div className="d-flex justify-content-center">
+          {" "}
+          <button className="btn btn-dark " onClick={submitAddressForm}>
+            {" "}
+            Add Address
+          </button>
+        </div>
+        <div className="info d-flex justify-content-around ">
           <Link className="ms-4 fw-bolder " to={"/checkout"}>
             back
           </Link>
+          <div></div>
+          <div></div>{" "}
           <p className=" secure">
             {" "}
             <i className="fas fa-lock me-2"> </i>connection secure

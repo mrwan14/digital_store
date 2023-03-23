@@ -18,15 +18,10 @@ export default function BagDetails() {
 
   return (
     <React.Fragment>
-      <div className="left-side">
         <Navbar />
-      </div>
       <div className="brdr "></div>
-
-      <div className="right-side">
         <BagInBagDetails />
-      </div>
-      <div className="bad-details">
+      <div className="bag-details">
         <h1 className="ms-5 mb-3">Check your Bag Items</h1>
 
         {cartItems.length > 0 ? (

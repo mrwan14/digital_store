@@ -1,55 +1,109 @@
-.bad-details
-{
-    position: absolute;
-    top: -80px;
-    width: 920px;
-    height: 100vh;
-
+.bag-details {
+  width: 920px;
+  height: auto;
 }
-.card-item
-{
+.card-item {
+  margin: auto;
+  width: 850px;
+  height: 300px;
+  position: relative;
+  border-radius: 18px;
+  background-color: white;
+}
+.rating {
+  position: absolute;
+  top: 160px;
+  right: 340px;
+}
+.img-in-card-details img {
+  border-radius: 18px;
+  width: 20022%;
+}
+.price {
+  margin-top: 40px;
+}
+.right-buttons {
+  cursor: pointer;
+}
+
+.brdr {
+  position: absolute;
+  top: -130px;
+  left: 970px;
+}
+
+@media (min-width: 0px) and (max-width: 576px) {
+  .bag-details {
+    width: 300px;
+  }
+  .bag-details h1 {
+    font-size: x-large;
+  }
+
+  .brdr {
+    margin-left: -560px;
+  }
+
+  .card-item {
+    width: 300px;
+    height: 400px;
+
+    padding: 5px;
+  }
+  .img-in-card-details {
+    width: 80px;
+  }
+}
+@media (min-width: 577px) and (max-width: 767px) {
+  .bag-details {
+    width: 400px;
+  }
+
+  .brdr {
+    margin-left: -460px;
+  }
+  .card-item {
+    width: 400px;
+    height: 400px;
+
+    padding: 5px;
+  }
+  .img-in-card-details {
+    width: 80px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .bag-details {
+    width: 600px;
+  }
+
+  .brdr {
+    margin-left: -260px;
+  }
+  .card-item {
     margin: auto;
-    width: 850px;
+    width: 600px;
     height: 300px;
     position: relative;
     border-radius: 18px;
     background-color: white;
+  }
 }
-.rating
 
-{
-    position: absolute;
-    top: 160px;
-    right: 340px;
-}
-.img-in-card-details img
-{
+@media (min-width: 992px) and (max-width: 1200px) {
+  .bag-details {
+    width: 800px;
+  }
+  .brdr {
+    margin-left: -80px;
+  }
+  .card-item {
+    margin: auto;
+    width: 700px;
+    height: 300px;
+    position: relative;
     border-radius: 18px;
-    width: 20022%;
-}
-.price
-{
-    margin-top: 40px;
-}
-.right-buttons
-{
-    cursor: pointer;
-}
-.left-side{
-    position: absolute;
-    left: -120px;
-    height: 100vh;
-    top: -164px;
-}
-.right-side
-{
-    position: absolute;
-    top: -130px;
-    right: -1370px;
-}
-.brdr
-{
-    position: absolute;
-    top: -130px;
-    left: 970px;
+    background-color: white;
+  }
 }

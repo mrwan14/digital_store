@@ -3,12 +3,9 @@ import { Link } from "react-router-dom";
 import { UserDataContext } from "../Context/UserData";
 import "./addpayment.css";
 export default function AddPayment() {
-  let {
-    getUserPaymentDetails,
-    submitPaymentForm,
-    userPaymentList,
-  } = useContext(UserDataContext);
-  
+  let { getUserPaymentDetails, submitPaymentForm, userPaymentList } =
+    useContext(UserDataContext);
+
   return (
     <React.Fragment>
       <div className="payment">
@@ -17,7 +14,7 @@ export default function AddPayment() {
           <div className="payment-methods "></div>
           <div>
             {userPaymentList.map((card) => (
-              <h6 className="text-muted" >
+              <h6 className="text-muted">
                 <i className="fa-brands fa-cc-mastercard   me-3"></i> MasterCard
                 ending in {card.Expiry_Date}
               </h6>
@@ -105,15 +102,19 @@ export default function AddPayment() {
               </div>
             </div>
           </div>
-          <button className="btn btn-dark " onClick={submitPaymentForm}>
-            {" "}
-            <i className=" fa-brands fa-cc-mastercard me-2"></i> Add Payment
-            Method
-          </button>
-          <div className="info d-flex ">
+          <div className="d-flex justify-content-center">
+            <button className="btn btn-dark jus " onClick={submitPaymentForm}>
+              {" "}
+              <i className=" fa-brands fa-cc-mastercard me-2"></i> Add Payment
+              Method
+            </button>
+          </div>
+          <div className="info d-flex  justify-content-around">
             <Link className="ms-4 fw-bolder " to={"/checkout"}>
               back
             </Link>
+            <div></div>
+            <div></div>
             <p className=" secure">
               {" "}
               <i className="fas fa-lock me-2"> </i>connection secure

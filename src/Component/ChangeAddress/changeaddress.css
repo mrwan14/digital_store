@@ -1,17 +1,38 @@
-.change-address
-{
-    position: absolute;
-    top: -100px;
-    left: 200px;
-
-    width: 800px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 15px;
-    height: 600px;
+.change-address {
+  width: 60%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  height: 600px;
+  margin: auto;
 }
-.change-address .btn
-{
-    width: 90%;
-    left: 35px;
+.change-address .btn {
+  width: 90%;
+  left: 35px;
+}
+
+@media (min-width: 0px) and (max-width: 576px) {
+  .change-address {
+    width: 100%;
+    margin-left: -60px;
+  }
+}
+@media (min-width: 577px) and (max-width: 767px) {
+  .change-address {
+    width: 100%;
+    margin-left: -50px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .change-address {
+    width: 100%;
+    margin-left: -40px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .change-address {
+    width: 65%;
+  }
 }

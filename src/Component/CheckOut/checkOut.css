@@ -1,94 +1,146 @@
-.checkout
+.shopping-address,
+.payment-method {
+  width: 871px;
+  height: 230px;
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.user-adddress,
+.user-payment-method {
+  margin-top: 20px;
+  font-weight: 400;
+}
+.main-title {
+  letter-spacing: 0.25em;
+  font-weight: 400;
+  font-size: 32px;
+}
+.shopping-address .btn,
+.payment-method .btn {
+  top: 70px;
+  width: 90px;
+  border-radius: 13px;
+}
+.summary {
+  width: 280px;
+  height: 319px;
+  background-color: white;
+  border-radius: 16px;
+}
+.right
 {
-    position: absolute;
-    top: -120px;
+  margin-left: 10px
+}
+
+.order-total {
+  margin-top: 30px;
+}
+.summary-brdr1 {
+  width: 90%;
+  height: 1px;
+  background-color: #bfd1e5;
+  top: 190px;
+}
+.summary-brdr2 {
+  width: 90%;
+  height: 1px;
+  background-color: #bfd1e5;
+  top: 240px;
+}
+.summary .btn {
+  width: 85%;
+  border-radius: 15px;
+}
+.summary .back {
+  bottom: -70px;
+  width: 40%;
+  margin-left: 150px;
+}
+.review-bag {
+  width: 871px;
+  max-height: auto;
+  height: auto;
+  background-color: white;
+}
+.card-item .brdr-review {
+  width: 87%;
+  height: 1px;
+  background-color: black;
+  margin: auto;
+  left: 30px;
 }
 
 
-.shopping-address ,.payment-method
-{
-    width: 871px;
-    height: 230px;
+@media (min-width: 0px) and (max-width: 576px) {
+
+  .right {
+    position: absolute;
+    top:300vh;
+    left: 0;
+  }
+  /* .checkout
+  {
+    display: block;
+  } */
+
+  .summary {
+    width: 471px;
+    height: 319px;
     background-color: white;
     border-radius: 16px;
-    padding: 20px;
+
+  }
+
+  .review-bag
+  {
     position: relative;
-    margin-bottom: 20px;
-}
-.user-adddress ,.user-payment-method
-{
-margin-top: 20px;
-font-weight: 400;
-}
-.main-title
-{
-    letter-spacing: 0.25em;
-    font-weight: 400;
-    font-size: 32px;
-}
-.shopping-address .btn ,.payment-method .btn
-{
-    position: absolute;
-    top: 70px;
+  }
+  .left {
+    margin-left: -100px;
+  }
+  .shopping-address,
+  .payment-method,
+  .review-bag {
+    width: 471px;
+  }
+  .shopping-address .btn,
+  .payment-method .btn {
     width: 90px;
-    border-radius: 13px;
+    height: 50px;
+  }
 }
-.summary
-{
-    width: 280px;
-    height: 319px; 
-    background-color: white;
-    border-radius: 16px;
-    position: absolute;
-    top: -120px;
-    right: -1250px;
+@media (min-width: 577px) and (max-width: 767px) {
+  .left {
+    margin-left: -100px;
+  }
+  .right
+  {
+    margin-left: 10px
+  }
+  .shopping-address,
+  .payment-method,
+  .review-bag {
+    width: 471px;
+  }
 }
-.order-total
-{
-    position: relative;
-    margin-top: 30px;
-}
-.summary-brdr1
-{
-    position: absolute;
-    width: 90%;
-    height: 1px;
-    background-color: #BFD1E5;
-    top: 190px;
 
+@media (min-width: 768px) and (max-width: 991px) {
+  .left {
+    margin-left: -100px;
+  }
+  .shopping-address,
+  .payment-method,
+  .review-bag {
+    width: 671px;
+  }
 }
-.summary-brdr2
-{
-    position: absolute;
-    width: 90%;
-    height: 1px;
-    background-color: #BFD1E5;
-    top: 240px;
 
-}
- .summary .btn
- {
-    width: 85%;
-    border-radius: 15px;
- }
- .summary .back
-{
-    bottom: -70px;
-    width: 40%;
-}
-.review-bag
-{
-    width: 871px;
-    max-height: auto;
-    height:auto;
-    background-color: white;
-}
-.card-item .brdr-review
-{
-    width: 87%;
-    height: 1px;
-    background-color: black;
-    position: absolute;
-    margin: auto;
-    left: 30px;
+@media (min-width: 992px) and (max-width: 1200px) {
+  .shopping-address,
+  .payment-method,
+  .review-bag {
+    width: 771px;
+  }
 }

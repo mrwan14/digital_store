@@ -1,24 +1,10 @@
-.dashboard
-{
-    position: relative;
-    width: 1510px;
-    height: 300vh;
-    background: #EDEDED;
-    border-radius: 16px;
+.dashboard {
+  background: #ededed;
+  border-radius: 16px;
+  min-height: 100vh;
+  height: auto;
 }
-.brdr
-{
 
-    background-color: rgba(26, 31, 22, 0.5);;
-    position: absolute;
-    width: 4px;
-    height: 921.5px;
-    top: 51px;
-    left: 1095px;
-}
-.content-area
-{
-    position: absolute;
-    top: 170px;
-    left: 120px;
+.content-area {
+margin-left: 100px;
 }

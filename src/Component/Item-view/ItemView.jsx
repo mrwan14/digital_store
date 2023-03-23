@@ -9,8 +9,7 @@ import Navbar from "../NavBar/Navbar";
 import Bag from "../Bag/Bag";
 
 export default function ItemView() {
-  let { data, CountTotalPrice, getItem } =
-    useContext(contentContext);
+  let { data, CountTotalPrice, getItem } = useContext(contentContext);
   const [newRating, setNewRating] = useState(0);
 
   const [item, setItem] = useState(null);
@@ -23,7 +22,7 @@ export default function ItemView() {
   useEffect(() => {
     getItemId();
   }, [params.id]);
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -35,28 +34,24 @@ export default function ItemView() {
 
   return (
     <React.Fragment>
-      <div className="left-side-in-items">
-        <Navbar />
-      </div>
+      <Navbar />
       <div className="brdr"></div>
-
-      <div className="right-side">
-        <Bag />
-      </div>
-      <div className="item-view ">
-        <div className="link  ">
-          <Link
-            className="d-flex justify-content-center align-items-center"
-            to={"/content-frame"}
-          >
-            {" "}
-            <i className="fa-solid fa-chevron-left m-2"></i> Back
-          </Link>
-        </div>
-        <div className="top-area ">
+      <Bag />
+      <div className="item-view  ">
+        <div className="top-area">
+          <div className="link  ms-5  d-flex ">
+            <Link
+              className="d-flex justify-content-center align-items-center"
+              to={"/content-frame"}
+            >
+              {" "}
+              <i className="fa-solid fa-chevron-left m-2"></i> Back
+            </Link>
+          </div>{" "}
           <div className="row d-flex">
             <div className="col-md-1">
               <div className="small-img">
+                {" "}
                 <img src={item?.ImgSrc} alt="" />
                 <img src={item?.ImgSrc} alt="" />
                 <img src={item?.ImgSrc} alt="" />
@@ -67,7 +62,7 @@ export default function ItemView() {
                 <img src={item?.ImgSrc} alt="" />
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 ">
               <h1>{item?.Product_Name}</h1>
               <h2 className=" text-muted">{item?.Product_Model}</h2>
               <div className="starts   d-flex align-items-center   ">
@@ -88,20 +83,21 @@ export default function ItemView() {
                 Doloribus incidunt tempora sit doloremque. Ipsa unde cum vitae
                 fuga? Laboriosam fuga incidunt labore nemo.
               </p>
-
-              <button
-                className="btn text-white bg-dark"
-                onClick={(event) => {
-                  getItem(item.id);
-                  CountTotalPrice(item.id);
-                }}
-              >
-                <i className="fa-solid fa-bag-shopping me-2"></i> add to bag
-              </button>
+              <div className="d-flex justify-content-end ms-5">
+                <button
+                  className="btn text-white bg-dark"
+                  onClick={(event) => {
+                    getItem(item.id);
+                    CountTotalPrice(item.id);
+                  }}
+                >
+                  <i className="fa-solid fa-bag-shopping me-2"></i> add to bag
+                </button>
+              </div>
             </div>
-            <div className="line"></div>
           </div>
         </div>
+        <div className="line"></div>
         <div className="bottom-area">
           <h1>Description</h1>
           <p>
@@ -130,6 +126,7 @@ export default function ItemView() {
             veritatis.
           </p>
         </div>
+
       </div>
     </React.Fragment>
   );

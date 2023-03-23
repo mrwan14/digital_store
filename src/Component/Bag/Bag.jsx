@@ -14,7 +14,7 @@ export default function Bag() {
         {cartItems.length > 0 ? (
           <div className="row  gy-3 ">
             {cartItems.map((product, i) => (
-              <div className="col-md-4 " key={i}>
+              <div className="col-lg-4  col-md-6 " key={i}>
                 <div className="product ">
                   <img src={product.ImgSrc} alt="" className="w-100" />
                 </div>

@@ -1,22 +1,14 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import "./dashboard.css";
 import ContentFrame from "../Content frame/ContentFrame";
 import { Route, Routes } from "react-router";
 import ItemView from "../Item-view/ItemView";
 import BagDetails from "../BagDetails/BagDetails";
 import CheckOut from "../CheckOut/CheckOut";
-import { contentContext } from "../Context/ContentContext";
 import AddPayment from "../AddPayment/AddPayment";
 import ChangeAddress from "../ChangeAddress/ChangeAddress";
 
 export default function Dashboard() {
-  let {ProductInBag,setProductInBag,saveData,savePrice}=useContext(contentContext)
-
-  
-
-
   return (
     <React.Fragment>
       <div className="dashboard">
