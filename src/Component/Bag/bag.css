@@ -61,3 +61,13 @@ button {
     width: 95%;
   }
 }
+@media (min-width: 1201px) and (max-width: 1450px) {
+  .bag {
+    width: 230px;
+  }
+}
+@media (min-width: 1451px) and (max-width: 1600px) {
+  .bag {
+    width: 340px;
+  }
+}
